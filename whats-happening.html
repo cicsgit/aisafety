@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Happening | UMass Amherst AI Safety Initiative</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/whats-happening.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <img src="images/umass-logo.png" alt="UMass Amherst Logo" class="logo">
+                <div class="logo-text">
+                    <h1>UMass Amherst</h1>
+                    <h2>AI Safety Initiative</h2>
+                </div>
+            </div>
+        </a>
+        <nav>
+            <ul class="main-menu">
+                <li class="dropdown">
+                    <a href="whats-happening.html">WHAT'S HAPPENING</a>
+                    <div class="dropdown-content">
+                        <a href="whats-happening.html#news">NEWS</a>
+                        <a href="whats-happening.html#seminars">SEMINARS</a>
+                        <a href="whats-happening.html#events">EVENTS</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="who-we-are.html">WHO WE ARE</a>
+                    <div class="dropdown-content">
+                        <a href="who-we-are.html#community" onclick="activateTab('community'); return true;">OUR
+                            COMMUNITY</a>
+                        <a href="who-we-are.html#funding" onclick="activateTab('funding'); return true;">OUR FUNDING</a>
+                        <a href="who-we-are.html#advisory" onclick="activateTab('advisory'); return true;">ADVISORY
+                            BOARD</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="what-we-do.html">WHAT WE DO</a>
+                    <div class="dropdown-content">
+                        <a href="what-we-do.html#mission" onclick="activateTab('mission'); return true;">MISSION</a>
+                        <a href="what-we-do.html#research" onclick="activateTab('research'); return true;">RESEARCH</a>
+                        <a href="what-we-do.html#education"
+                            onclick="activateTab('education'); return true;">EDUCATION</a>
+                        <a href="what-we-do.html#outreach" onclick="activateTab('outreach'); return true;">OUTREACH</a>
+                        <a href="what-we-do.html#resources"
+                            onclick="activateTab('resources'); return true;">RESOURCES</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="join.html">JOIN US</a>
+                    <div class="dropdown-content wider-dropdown">
+                        <a href="join.html#grad-students" onclick="activateTab('grad-students'); return true;">INFO FOR
+                            GRADUATE STUDENTS</a>
+                        <a href="join.html#undergrad-students"
+                            onclick="activateTab('undergrad-students'); return true;">INFO FOR UNDERGRADUATE
+                            STUDENTS</a>
+                        <a href="join.html#mailing-list" onclick="activateTab('mailing-list'); return true;">MAILING
+                            LIST</a>
+                        <a href="join.html#contact-us" onclick="activateTab('contact-us'); return true;">CONTACT US</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page-banner">
+        <div class="banner-content">
+            <h1>What's Happening</h1>
+            <p>Stay updated with the latest news, events, and seminars from the AI Safety Initiative</p>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <div class="sidebar">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item active" data-section="news">
+                    <a href="#news">News</a>
+                    <i class="fas fa-arrow-right sidebar-indicator"></i>
+                </li>
+                <!-- <li class="sidebar-item" data-section="seminars">
+                    <a href="#seminars">Seminars</a>
+                    <i class="fas fa-arrow-right sidebar-indicator"></i>
+                </li> -->
+                <li class="sidebar-item" data-section="events">
+                    <a href="#events">Events</a>
+                    <i class="fas fa-arrow-right sidebar-indicator"></i>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <!-- News Section -->
+            <section id="news" class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Latest News</h2>
+
+                    <!-- News will be dynamically loaded from whats-happening.yaml -->
+                    <div id="news-container">
+                        <!-- Loading animation will be inserted by JS -->
+                    </div>
+
+                    <div class="view-more-container">
+                        <button class="view-more-btn" id="news-view-more-btn">View All News</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Events Section -->
+            <section id="events" class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Events</h2>
+
+                    <!-- Events will be dynamically loaded from whats-happening.yaml -->
+                    <div id="events-container">
+                        <!-- Loading animation will be inserted by JS -->
+                    </div>
+
+                    <div class="view-more-container">
+                        <button class="view-more-btn" id="events-view-more-btn">View All Events</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/umass-logo.png" alt="UMass Amherst Logo" class="footer-logo-img">
+                <div class="footer-logo-text">
+                    <h3>UMass Amherst</h3>
+                    <h4>AI Safety Initiative</h4>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="community.html">Our Community</a></li>
+                        <li><a href="funding.html">Funding</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="software.html">Software</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="mailing-list.html">Join Mailing List</a></li>
+                        <li><a href="donate.html">Support Our Work</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 UMass Amherst AI Safety Initiative. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="accessibility.html">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+    <script src="javascript/scripts.js"></script>
+    <script src="javascript/dynamic.js"></script>
+    <script src="javascript/whats-happening.js"></script>
+</body>
+
+</html>

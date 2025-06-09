@@ -1,0 +1,399 @@
+people:
+  # ------------------------------------------------------------------------------------------------------------
+  # ----------------------------------------------- LEADERSHIP -------------------------------------------------
+  # ------------------------------------------------------------------------------------------------------------
+  - name: "Eugene Bagdasarian"
+    email: "eugene@umass.edu"
+    categories:
+      - "Leadership"
+    title: "Assistant Professor & Initiative Lead"
+    description: >-
+      Eugene's research focuses on trustworthy machine learning, with
+      an emphasis on robustness, interpretability, and alignment of AI
+      systems. He completed his PhD at Cornell Tech advised by Vitaly
+      Shmatikov and Deborah Estrin. Eugene's research was recognized
+      by Apple Scholars in AI/ML and Digital Life Initiative
+      fellowships and Usenix Security Distinguished Paper Award.
+    website: "https://people.cs.umass.edu/~eugene/"
+    image: "content/people/images/Eugene Bagdasarian.jpg"
+    office: "CS 304"
+    interests: ["Trustworthy ML", "AI Alignment", "Robustness", "Interpretability"]
+  
+  - name: "Shlomo Zilberstein"
+    email: "shlomo@cs.umass.edu"
+    categories:
+      # - "Faculty"
+      - "Leadership"
+    title: "Professor"
+    description: >-
+      Shlomo Zilberstein is a Professor of Computer Science and former
+      Associate Dean of Research and Engagement. Zilberstein's
+      research focuses on the foundations and applications of
+      resource-bounded reasoning techniques, which allow complex
+      systems to make decisions while coping with uncertainty, missing
+      information, and limited computational resources. His research
+      interests include automated reasoning, planning and learning
+      under uncertainty, multi-agent systems, Markov decision
+      processes, design of autonomous agents, meta-reasoning and
+      meta-level control, self-driving vehicles, human-centered AI,
+      safe and ethical AI.
+    website: "https://groups.cs.umass.edu/shlomo/"
+    image: "content/people/images/Shlomo Zilberstein.jpg"
+    office: "A359 LGRC"
+    interests: ["Artificial Intelligence", "Automated Planning", "Multiagent Systems", "Autonomous Agents", "Bounded Rationality"]
+
+  - name: "Kyle Hollins Wray"
+    email: "kwray@umass.edu"
+    categories:
+      - "Research Fellow"
+      - "Leadership"
+    title: "Research Fellow"
+    description: >-
+      Kyle Hollins Wray is an Research Fellow at UMass Amherst and the
+      Executive Director of the AI Safety Initiative. He leads the
+      creation of autonomous robots that can plan, make decisions,
+      navigate, and coordinate in the real world. He also researches
+      theoretical models and practical algorithms for decision-making
+      under uncertainty in real robots. AI Safety is a top priority
+      among all his work.
+    website: "https://wray.ai"
+    image: "content/people/images/Kyle Hollins Wray.jpg"
+    office: "N/A"
+    interests: ["AI Safety", "Decision Making", "Autonomous Robotics", "Multi-Objective Models"]
+
+  - name: "Sujal Timilsina"
+    email: "stimilsina@umass.edu"
+    categories:
+      - "Leadership"
+    title: "Lead Engineer"
+    description: >-
+      Sujal Timilsina is the Lead Engineer at the AI Safety
+      Initiative, overseeing technical operations and engineering
+      projects. His expertise lies in developing robust AI systems and
+      ensuring their safe deployment in real-world applications.
+    website: "https://sujaltimilsina.com/"
+    image: "content/people/images/Sujal_Timilsina.jpg"
+    office: "N/A"
+    interests: ["AI Safety", "Cloud Computing", "Robust AI Systems", "Engineering Management"]
+
+  - name: "Mohammad Hajiesmaili"
+    email: "hajiesmaili@cs.umass.edu"
+    categories:
+      - "Faculty"
+    title: "Associate Professor"
+    description: >-
+      Decision-making under uncertainty is a fundamental challenge in
+      computing and engineering, addressed through the framework of
+      online optimization and learning. This approach enables
+      sequential decision-making without prior knowledge of future
+      events, aiming to perform nearly as well as the best possible
+      decision sequence in hindsight. While this theory has driven
+      impactful solutions in areas like content delivery,
+      recommendation systems, and online advertising, real-world
+      deployments often face security threats such as click fraud,
+      fake reviews, and DDoS attacks. Our group is working on the
+      theory and applications of online optimization and learning
+      under adversarial corruption. 
+    website: "https://solar.cs.umass.edu/"
+    image: "content/people/images/Mohammad Hajiesmaili.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Yair Zick"
+    email: "yzick@cs.umass.edu"
+    categories:
+      - "Faculty"
+    title: "Assistant Professor"
+    description: >-
+      Yair's work focuses on designing AI systems make decisions in an
+      economics-informed manner, with a focus on methods that do not
+      use money as a medium for facilitating good market outcomes. I
+      am also interested in explaining the decisions of complex AI
+      systems, with a focus on both explanation safety, and on
+      designing systems that offer high quality explanations. 
+    website: "https://people.cs.umass.edu/~yzick/index.html"
+    image: "content/people/images/Yair Zick.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Philip Thomas"
+    email: "pthomas@cs.umass.edu"
+    categories:
+      - "Faculty"
+    title: "Associate Professor, Doctoral Program Director"
+    description: >-
+      Prof. Thomas' research focuses on providing high-confidence
+      safety guarantees for machine learning (ML) algorithms, and
+      particularly reinforcement learning (RL) algorithms. A central
+      goal of his work is to make it straightforward for practitioners
+      to define application-specific safety or fairness constraints
+      that the algorithm will then enforce. Prof. Thomas is currently
+      collaborating with a company that produces insulin pumps to
+      investigate the use of RL algorithms that provide
+      high-confidence safety guarantees.
+    website: "https://people.cs.umass.edu/~pthomas/"
+    image: "content/people/images/Philip Thomas.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Francine Berman"
+    email: "fberman@umass.edu"
+    categories:
+      - "Faculty"
+    title: "Stuart Rice Honorary Research Professor"
+    description: >-
+      The increasing prevalence of AI provides a glimpse of a “hybrid”
+      future where machines and humans both have the capability to
+      call the shots. Will more and better AI increase human
+      well-being? How do we advance and evolve both society and
+      technology so that AI empowers and humans thrive?  AI innovation
+      has the potential to change society - the way we engage, the
+      things we do, the information we're fed, the power dynamics of
+      the world around us.  Promoting AI safety and empowerment will
+      require human initiative and the responsible development,
+      deployment and management of AI to prioritize the public
+      interest, minimize potential risks to humans, and maximize the
+      benefits of AI to society.  
+    website: "https://people.cs.umass.edu/~fberman/"
+    image: "content/people/images/Francine Berman.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Amir Houmansadr"
+    email: "amir@cs.umass.edu"
+    categories:
+      - "Faculty"
+    title: "Associate Professor"
+    description: >-
+      Amir Houmansadr is an Associate Professor of Computer Science at
+      the University of Massachusetts Amherst, where he leads the
+      Secure, Private Internet (SPIN) lab. His research focuses on
+      trustworthy AI, aiming to make machine learning systems more
+      secure, private, and reliable. He investigates critical
+      vulnerabilities in modern AI—such as privacy leakage,
+      adversarial manipulation, and unsafe deployment—and designs
+      defenses to mitigate these risks. Through projects spanning
+      privacy-preserving learning, robust inference, and responsible
+      data use, his work advances the development of AI systems that
+      are not only effective, but also aligned with principles of
+      security, fairness, and accountability.
+    website: "https://people.cs.umass.edu/~amir"
+    image: "content/people/images/Amir Houmansadr.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Hao Zhang"
+    email: "hao.zhang@umass.edu"
+    categories:
+      - "Faculty"
+    title: "Associate Professor"
+    description: >-
+      Our lab advances AI safety in robotics by developing adaptive
+      robotic systems that are robust, resilient, and interpretable.
+      Our research spans safe decision-making under uncertainty and
+      adversarial conditions; interpretable robot learning and control
+      algorithms that are resistant to adversarial manipulation; and
+      the design of fail-safe hardware and software autonomy stacks.
+      We aim to ensure that autonomous AI-powered robots can operate
+      safely and reliably in dynamic, unstructured, and adversarial
+      environments, even in the presence of novel challenges or
+      malicious interference.
+    website: "https://hcr.cs.umass.edu/people/hzhang/"
+    image: "content/people/images/Hao Zhang.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Scott Niekum"
+    email: "sniekum@cs.umass.edu"
+    categories:
+      - "Faculty"
+    title: "Associate Professor"
+    description: >-
+      Current AI systems rarely provide performance guarantees and are
+      frequently under-tested, leading to failures that are
+      unacceptable in many real-world deployment scenarios. Instead,
+      AI systems ought to establish with high confidence that they are
+      aligned with their human users -- in other words, that their
+      goals and behaviors are well-matched with the objectives of
+      users. Notably, alignment is not simply a matter of developing
+      performant policy learning algorithms; the learning objective
+      itself (e.g. a reward function) is often too difficult to
+      specify by hand and must be learned from human data.
+      Furthermore, strong average-case performance is often not
+      sufficient, as many applications demand the management of
+      tail-risks, or even probabilistic or formal guarantees. Thus,
+      the goal of my research is to develop algorithms that can align
+      AI systems efficiently, reason about uncertainty and risk, and
+      provide performance guarantees.
+    website: "https://people.cs.umass.edu/~sniekum/index.php"
+    image: "content/people/images/Scott Niekum.jpg"
+    office: "N/A"
+    interests: []
+
+  - name: "Shiqing Ma"
+    email: "shiqingma@cs.umass.edu"
+    categories:
+      - "Faculty"
+    title: "Assistant Professor"
+    description: >-
+      Dr. Shiqing Ma is a leading researcher in the field of AI
+      safety, security, and privacy. His work seamlessly integrates
+      the disciplines of artificial intelligence, cybersecurity, and
+      software systems to enhance the transparency and trustworthiness
+      of contemporary computing infrastructures. His investigations
+      focus on identifying vulnerabilities in machine learning models
+      and developing robust defenses that guarantee the safe and
+      secure operation of systems from both theoretical and practical
+      perspectives. By addressing these challenges, Dr. Ma provides
+      solutions that strengthen the resilience of AI-driven
+      technologies against malicious attacks. Through his
+      interdisciplinary approach, Dr. Ma makes a significant
+      contribution to the development of secure and reliable AI
+      systems, addressing critical challenges in the domain of AI
+      safety and security.  
+    website: "https://people.cs.umass.edu/~shiqingma/"
+    image: "content/people/images/Shiqing Ma.jpg"
+    office: "N/A"
+    interests: []
+
+  # # ------------------------------------------------------------------------------------------------------------
+  # # ----------------------------------------------- FACULTY ----------------------------------------------------
+  # # ------------------------------------------------------------------------------------------------------------
+  # - name: "Dr. Michael Chen"
+  #   email: "mchen@umass.edu"
+  #   categories:
+  #     - "Faculty"
+  #   title: "Associate Professor"
+  #   description: "Dr. Chen's research focuses on robustness in deep learning systems and adversarial machine learning. He leads the initiative's technical research program and industry partnerships."
+  #   website: "https://people.cs.umass.edu/~mchen/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 302"
+  #   interests: ["Robustness", "Adversarial Machine Learning", "Deep Learning"]
+
+  # - name: "Dr. Emily Rodriguez"
+  #   email: "erodriguez@umass.edu"
+  #   categories:
+  #     - "Faculty"
+  #   title: "Associate Professor"
+  #   description: "Dr. Rodriguez oversees the initiative's educational programs, curriculum development, and outreach activities. Her research explores AI ethics and responsible innovation."
+  #   website: "https://people.cs.umass.edu/~erodriguez/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 303"
+  #   interests: ["AI Ethics", "Responsible Innovation", "AI Education"]
+
+  # # ------------------------------------------------------------------------------------------------------------
+  # # ----------------------------------------------- RESEARCH FELLOWS -------------------------------------------
+  # # ------------------------------------------------------------------------------------------------------------
+  # - name: "Dr. Marcus Johnson"
+  #   email: "mjohnson@umass.edu"
+  #   categories:
+  #     - "Research Fellows"
+  #   title: "Senior Research Fellow - AI Governance"
+  #   description: "Dr. Johnson specializes in AI governance and policy frameworks for safe innovation."
+  #   website: "https://people.cs.umass.edu/~mjohnson/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 403"
+  #   interests: ["AI Governance", "Policy", "Regulation"]
+
+  # - name: "Dr. Lisa Chen"
+  #   email: "lchen@umass.edu"
+  #   categories:
+  #     - "Research Fellows"
+  #   title: "Postdoctoral Research Fellow - LLM Safety"
+  #   description: "Dr. Chen works on interpretability methods for large language models."
+  #   website: "https://people.cs.umass.edu/~lchen/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 501"
+  #   interests: ["LLM Interpretability", "NLP", "AI Safety"]
+
+  # # Fake
+  # - name: "Dr. David Kim"
+  #   email: "dkim@umass.edu"
+  #   categories:
+  #     - "Research Fellows"
+  #   title: "Postdoctoral Research Fellow - RL Safety"
+  #   description: "Dr. Kim researches robustness in reinforcement learning systems."
+  #   website: "https://people.cs.umass.edu/~dkim/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 502"
+  #   interests: ["Reinforcement Learning", "Robustness", "Safety"]
+
+  # # ------------------------------------------------------------------------------------------------------------
+  # # ----------------------------------------------- STUDENTS ---------------------------------------------------
+  # # ------------------------------------------------------------------------------------------------------------
+  # - name: "Alex Johnson"
+  #   email: "ajohnson@umass.edu"
+  #   categories:
+  #     - "Students"
+  #   title: "PhD Candidate"
+  #   description: "Alex's dissertation focuses on scalable oversight methods for AI systems."
+  #   website: "https://people.cs.umass.edu/~ajohnson/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 601"
+  #   interests: ["Scalable Oversight", "AI Safety", "Alignment"]
+
+  # # Fake
+  # - name: "Maya Patel"
+  #   email: "mpatel@umass.edu"
+  #   categories:
+  #     - "Students"
+  #   title: "PhD Candidate"
+  #   description: "Maya researches explainable AI and human-interpretable models."
+  #   website: "https://people.cs.umass.edu/~mpatel/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 602"
+  #   interests: ["Explainable AI", "Interpretability", "Human-AI Interaction"]
+
+  # - name: "Carlos Rodriguez"
+  #   email: "crodriguez@umass.edu"
+  #   categories:
+  #     - "Students"
+  #   title: "Undergraduate Researcher"
+  #   description: "Carlos is working on his senior thesis focused on AI alignment through inverse reinforcement learning."
+  #   website: "https://people.cs.umass.edu/~crodriguez/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 603"
+  #   interests: ["Inverse Reinforcement Learning", "Alignment", "Preference Learning"]
+
+  # - name: "Sarah Lee"
+  #   email: "slee@umass.edu"
+  #   categories:
+  #     - "Students"
+  #   title: "MS Student"
+  #   description: "Sarah works on adversarial testing of AI systems for safety properties."
+  #   website: "https://people.cs.umass.edu/~slee/"
+  #   image: "content/people/images/pic_placeholder.jpg"
+  #   office: "CS Building, Room 604"
+  #   interests: ["Adversarial Testing", "AI Safety", "Robustness"]
+
+# ------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------- FUNDING ----------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
+funding:
+  government:
+    - name: "National Science Foundation"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "Department of Defense"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "National Institute of Standards and Technology"
+      logo: "content/artifacts/images/aisec_generic.svg"
+
+  industry:
+    - name: "Google DeepMind"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "OpenAI"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "Microsoft Research"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "Anthropic"
+      logo: "content/artifacts/images/aisec_generic.svg"
+
+  foundation:
+    - name: "Schmidt Sciences"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "Open Philanthropy"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "Future of Humanity Institute"
+      logo: "content/artifacts/images/aisec_generic.svg"
+    - name: "Center for AI Safety"
+      logo: "content/artifacts/images/aisec_generic.svg"

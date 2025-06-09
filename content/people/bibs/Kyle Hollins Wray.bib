@@ -1,0 +1,45 @@
+@inproceedings{JBWCKicra24,
+    author = {Arec Jamgochian and Hugo Buurmeijer and Kyle H. Wray and Anthony Corso and Mykel J. Kochenderfer},
+    title = {Constrained Hierarchical Monte Carlo Belief-State Planning},
+    booktitle = {2024 IEEE International Conference on Robotics and Automation},
+    pages = {2368-–2374},
+    year = {2024},
+    abstract = {Optimal plans in Constrained Partially Observ- able Markov Decision Processes (CPOMDPs) maximize reward objectives while satisfying hard cost constraints, generalizing safe planning under state and transition uncertainty. Unfortu- nately, online CPOMDP planning is extremely difficult in large or continuous problem domains. In many large robotic domains, hierarchical decomposition can simplify planning by using tools for low-level control given high-level action primitives (options). We introduce Constrained Options Belief Tree Search (COBeTS) to leverage this hierarchy and scale online search- based CPOMDP planning to large robotic problems. We show that if primitive option controllers are defined to satisfy assigned constraint budgets, then COBeTS will satisfy constraints any- time. Otherwise, COBeTS will guide the search towards a safe sequence of option primitives, and hierarchical monitoring can be used to achieve runtime safety. We demonstrate COBeTS in several safety-critical, constrained partially observable robotic domains, showing that it can plan successfully in continuous CPOMDPs while non-hierarchical baselines cannot.},
+}
+
+@article{BSWWBZaij23,
+    author = {Connor Basich and Justin Svegliato and Kyle H. Wray and Stefan Witwicki and Joydeep Biswas and Shlomo Zilberstein},
+    title = {Competence-aware systems},
+    journal = {Artificial Intelligence},
+    pages = {103844},
+    volume = {316},
+    year = {2023},
+    abstract = {Building autonomous systems for deployment in the open world has been a longstanding objective in both artificial intelligence and robotics. The open world, however, presents challenges that question some of the assumptions often made in contemporary AI models. Autonomous systems that operate in the open world face complex, non-stationary environments wherein enumerating all situations the system may face over the course of its deployment is intractable. Nevertheless, these systems are expected to operate safely and reliably for extended durations. Consequently, AI systems often rely on some degree of human assistance to mitigate risks while completing their tasks, and are hence better treated as semi-autonomous systems. In order to reduce unnecessary reliance on humans and optimize autonomy, we propose a novel introspective planning model—competence-aware systems (CAS)—that enables a semi-autonomous system to reason about its own competence and allowed level of autonomy by leveraging human feedback or assistance. A CAS learns to adjust its level of autonomy based on experience and interactions with a human authority so as to reduce improper reliance on the human and optimize the degree of autonomy it employs in any given circumstance. To handle situations in which the initial CAS model has insufficient state information to properly discriminate feedback received from humans, we introduce a methodology called iterative state space refinement that gradually increases the granularity of the state space online. The approach exploits information that exists in the standard CAS model and requires no additional input from the human. The result is an agent that can more confidently predict the correct feedback from the human authority in each level of autonomy, enabling it learn its competence in a larger portion of the state space.},
+}
+
+@inproceedings{WLJWKHIisr21,
+    author = {Kyle Hollins Wray and Bernard Lange and Arec Jamgochian and Stefan J. Witwicki and Atsuhide Kobashi and Sachin Hagaribommanahalli and David Ilstrup},
+    title = {{POMDP}s for Safe Visibility Reasoning in Autonomous Vehicles},
+    booktitle = {2021 IEEE International Conference on Intelligence and Safety for Robotics},
+    pages = {191--195},
+    year = {2021},
+    abstract = {We present solutions for autonomous vehicles in limited visibility scenarios, such as traversing T-intersections, as well as detail how these scenarios can be handled simultaneously. The approach models each problem separately as a partially observable Markov decision process (POMDP). We propose an approach for integrating limited visibility within a POMDPs and implementing them on a physical robot. In order to address scalability challenges, we use a framework for multiple online decision-components with interacting actions (MODIA). We present the novel necessary architectural details to deploy MODIA on an actual robot. The entire approach is demonstrated on a fully operational autonomous vehicle prototype acting in the real world at two different T-intersections.},
+}
+
+@inproceedings{WWZijcai17,
+    author = {Kyle Hollins Wray and Stefan J. Witwicki and Shlomo Zilberstein},
+    title = {Online Decision-Making for Scalable Autonomous Systems},
+    booktitle = {Proceedings of the 26th International Joint Conference on Artificial Intelligence},
+    pages = {4768--4774},
+    year = {2017},
+    abstract = {We present a general formal model called MODIA that can tackle a central challenge for autonomous vehicles (AVs), namely the ability to interact with an unspecified, large number of world entities.  In MODIA, a collection of possible decision-problems (DPs), known a priori, are instantiated online and executed as decision-components (DCs), unknown a priori.  To combine the individual action recommendations of the DCs into a single action, we propose the lexicographic executor action function (LEAF) mechanism.  We analyze the complexity of MODIA and establish LEAF's relation to regret minimization. Finally, we implement MODIA and LEAF using collections of partially observable Markov decision process (POMDP) DPs, and use them for complex AV intersection decision-making. We evaluate the approach in six scenarios within a realistic vehicle simulator and present its use on an AV prototype.}
+}
+
+@inproceedings{WZMaaai15,
+    author = {Kyle Hollins Wray and Shlomo Zilberstein and Abdel-Illah Mouaddib},
+    title = {Multi-Objective {MDP}s with Conditional Lexicographic Reward Preferences},
+    booktitle = {Proceedings of the 29th AAAI Conference on Artificial Intelligence},
+    pages = {3418--3424},
+    year = {2015},
+    abstract = {Sequential decision problems that involve multiple objectives are prevalent. Consider for example a driver of a semi-autonomous car who may want to optimize competing objectives such as travel time and the effort associated with manual driving. We introduce a rich model called Lexicographic MDP (LMDP) and a corresponding planning algorithm called LVI that generalize previous work by allowing for conditional lexicographic preferences with slack. We analyze the convergence characteristics of LVI and establish its game theoretic properties. The performance of LVI in practice is tested within a realistic benchmark problem in the domain of semi-autonomous driving. Finally, we demonstrate how GPU-based optimization can improve the scalability of LVI and other value iteration algorithms for MDPs.}
+}

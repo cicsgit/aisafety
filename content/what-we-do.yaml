@@ -1,0 +1,145 @@
+mission:
+  title: "Mission"
+  statement: "Our mission is to ensure that advanced AI systems are developed safely, aligned with human values, and deployed for the benefit of humanity."
+  description: "The UMass Amherst AI Safety Initiative is dedicated to addressing the technical, ethical, and governance challenges associated with increasingly powerful artificial intelligence systems. We bring together researchers from computer science, mathematics, philosophy, social sciences, and policy to tackle the multifaceted challenges of AI safety."
+  approach: "Through our interdisciplinary approach, we aim to:"
+  goals:
+    - text: "Develop technical approaches to ensure AI systems remain safe, robust, and aligned with human values"
+      icon: "fas fa-check-circle"
+    
+    - text: "Train the next generation of researchers and practitioners in AI safety"
+      icon: "fas fa-check-circle"
+    
+    - text: "Collaborate with industry, government, and civil society to develop responsible AI governance frameworks"
+      icon: "fas fa-check-circle"
+    
+    - text: "Advance public understanding of AI safety challenges and solutions"
+      icon: "fas fa-check-circle"
+
+research:
+  title: "Research"
+  description: "Our research program focuses on developing the technical foundations and governance frameworks needed to ensure that advanced AI systems remain safe, aligned with human values, and beneficial."
+  areas:
+    - title: "AI Alignment"
+      description: "Developing methods to ensure AI systems understand and act according to human values and intentions, even as they become more capable and autonomous."
+      icon: "fas fa-brain"
+      link: "research.html#alignment"
+    
+    - title: "Robustness & Safety"
+      description: "Creating AI systems that perform reliably under distribution shifts, adversarial attacks, and in novel environments without unexpected failures."
+      icon: "fas fa-shield-alt"
+      link: "research.html#robustness"
+    
+    - title: "Interpretability"
+      description: "Building tools and techniques to understand the internal workings of complex AI systems, enabling better oversight and alignment verification."
+      icon: "fas fa-search"
+      link: "research.html#interpretability"
+    
+    - title: "Governance & Policy"
+      description: "Developing frameworks for responsible AI development, deployment, and regulation to ensure beneficial outcomes for society."
+      icon: "fas fa-balance-scale"
+      link: "research.html#governance"
+
+# featured_publications:
+#   title: "Featured Publications"
+#   description: "Highlighting some of our most impactful research contributions to the field of AI safety."
+#   publications:
+#     - title: "Scalable Oversight for Large Language Models"
+#       authors: "Eugene Bagdasarian, Sarah Johnson, et al."
+#       venue: "Conference on Neural Information Processing Systems (NeurIPS)"
+#       year: "2023"
+#       description: "A novel approach to scaling human oversight of AI systems using constitutional AI methods."
+#       link: "#"
+#       featured: true
+    
+#     - title: "Robustness Evaluation Framework for Safety-Critical AI"
+#       authors: "Lisa Chen, David Kim, Eugene Bagdasarian"
+#       venue: "International Conference on Machine Learning (ICML)"
+#       year: "2023"
+#       description: "Comprehensive framework for evaluating AI system robustness in safety-critical applications."
+#       link: "#"
+#       featured: true
+    
+#     - title: "Interpretability Methods for Neural Network Decision Boundaries"
+#       authors: "Maya Patel, Alex Johnson, Sarah Johnson"
+#       venue: "Journal of Artificial Intelligence Research"
+#       year: "2022"
+#       description: "Novel techniques for understanding and visualizing neural network decision-making processes."
+#       link: "#"
+#       featured: true
+
+outreach:
+  title: "Outreach"
+  description: "We engage with the broader community through various outreach activities designed to increase awareness and understanding of AI safety challenges and solutions."
+  activities:
+    - title: "Public Lectures"
+      description: "We host regular public lectures featuring leading experts in AI safety and ethics. These events are open to the public and designed to make complex technical topics accessible to broader audiences."
+      icon: "fas fa-microphone-alt"
+      link: "lectures.html"
+      link_text: "Upcoming Lectures"
+    
+    - title: "Podcast & Media"
+      description: "Our \"AI Safety Dialogues\" podcast features conversations with researchers, industry leaders, and policymakers about the challenges and opportunities in ensuring safe and beneficial AI."
+      icon: "fas fa-podcast"
+      link: "podcast.html"
+      link_text: "Listen to Episodes"
+    
+    - title: "Community Workshops"
+      description: "We organize workshops for K-12 students, educators, and community organizations to build AI literacy and awareness of safety considerations in artificial intelligence."
+      icon: "fas fa-users"
+      link: "community-workshops.html"
+      link_text: "Workshop Calendar"
+    
+    - title: "Industry Partnerships"
+      description: "We collaborate with industry partners to translate research into practice and develop responsible AI deployment frameworks for real-world applications."
+      icon: "fas fa-handshake"
+      link: "partnerships.html"
+      link_text: "Our Partners"
+  
+  # metrics:
+  #   - number: "50+"
+  #     label: "Public Events"
+    
+  #   - number: "5,000+"
+  #     label: "Workshop Participants"
+    
+  #   - number: "25+"
+  #     label: "Industry Partners"
+    
+  #   - number: "100K+"
+  #     label: "Podcast Downloads"
+
+resources:
+  title: "Resources"
+  description: "We develop and curate resources to support research, education, and practice in AI safety."
+  categories:
+    - title: "Datasets & Benchmarks"
+      description: "Standardized datasets and benchmarks for evaluating AI safety properties, including robustness, alignment, and interpretability."
+      icon: "fas fa-database"
+      link: "datasets.html"
+      link_text: "Access Datasets"
+    
+    - title: "Open-Source Software"
+      description: "Tools and libraries for AI safety research, including interpretability frameworks, robustness testing suites, and alignment evaluation methods."
+      icon: "fas fa-code"
+      link: "software.html"
+      link_text: "Browse Software"
+    
+    - title: "Educational Materials"
+      description: "Lecture notes, tutorials, and course materials on AI safety topics, freely available for educators and self-learners."
+      icon: "fas fa-book"
+      link: "educational-materials.html"
+      link_text: "View Materials"
+    
+    - title: "Policy Briefs"
+      description: "Accessible summaries of AI safety research and its policy implications, designed for policymakers and the general public."
+      icon: "fas fa-file-alt"
+      link: "policy-briefs.html"
+      link_text: "Read Briefs"
+    
+    - title: "Video Lectures"
+      description: "Recorded lectures, talks, and tutorials on AI safety topics from our events and educational programs."
+      icon: "fas fa-video"
+      link: "videos.html"
+      link_text: "Watch Videos"
+    

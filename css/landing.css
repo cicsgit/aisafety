@@ -1,0 +1,692 @@
+/* Landing Page Styles */
+
+/* Hero Section - Updated with background image */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    /* Fallback color */
+}
+
+/* Add the background image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/building.jpg');
+    background-size: cover;
+    background-position: center 75%;
+    opacity: 0.7;
+    /* Adjust opacity as needed */
+    z-index: 1;
+}
+
+/* Add a dark overlay for better text readability */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark overlay */
+    z-index: 2;
+}
+
+.hero-content {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 3;
+    /* Above the background and overlay */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.primary-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: white;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.primary-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 2px solid white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-visual {
+    display: none;
+}
+
+.hero-image {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.8);
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 30% 50%, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+}
+
+/* Key Areas Section */
+.key-areas {
+    padding: 5rem 0;
+    background-color: var(--background-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.area-card {
+    background-color: white;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.area-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.area-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.area-icon i {
+    font-size: 2rem;
+}
+
+.area-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.area-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+.learn-more {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.learn-more i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.learn-more:hover {
+    color: var(--secondary-color);
+}
+
+.learn-more:hover i {
+    transform: translateX(5px);
+}
+
+/* Latest News Section */
+.latest-news {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.view-all {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.view-all i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.view-all:hover {
+    color: var(--secondary-color);
+}
+
+.view-all:hover i {
+    transform: translateX(5px);
+}
+
+/* News Grid Styles for Landing Page */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.news-card {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.08);
+}
+
+.news-date {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.category-tag {
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.category-tag.news {
+    background-color: rgba(59, 130, 246, 0.9);
+}
+
+.category-tag.event {
+    background-color: rgba(16, 185, 129, 0.9);
+}
+
+.category-tag.seminar {
+    background-color: rgba(245, 158, 11, 0.9);
+}
+
+.news-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    color: var(--primary-color);
+}
+
+.news-meta {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.news-meta i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.news-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.news-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    margin-top: auto;
+}
+
+.news-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.news-link:hover {
+    color: var(--secondary-color);
+}
+
+.news-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Loading indicator for news grid */
+.news-grid .loading-indicator {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--secondary-color);
+}
+
+.news-grid .loading-indicator i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: fa-spin 2s infinite linear;
+}
+
+.cta-section {
+    padding: 5rem 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/cta-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding: 4rem 2rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-visual {
+        height: 50vh;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-card {
+        min-height: 320px;
+    }
+    
+    .news-image {
+        height: 180px;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.area-card,
+.news-card,
+.stat-item,
+.researcher-card {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.area-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.area-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.area-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.news-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.news-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.stat-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stat-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.stat-item:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.researcher-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.researcher-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.researcher-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* Accessibility Improvements */
+.primary-button:focus,
+.secondary-button:focus,
+.learn-more:focus,
+.view-all:focus,
+.read-more:focus,
+.researcher-link:focus,
+.view-all-button:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-visual,
+    .hero-pattern,
+    .area-icon,
+    .news-image,
+    .researcher-photo,
+    .cta-section {
+        display: none;
+    }
+
+    .hero-content,
+    .area-card,
+    .news-content,
+    .researcher-card {
+        color: black;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .learn-more,
+    .view-all,
+    .read-more,
+    .researcher-link,
+    .view-all-button {
+        display: none;
+    }
+
+    .section-title::after {
+        display: none;
+    }
+
+    .impact-stats {
+        background-color: transparent;
+        color: black;
+    }
+
+    .impact-stats .section-title {
+        color: black;
+    }
+
+    .stats-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        width: 50%;
+        padding: 1rem;
+    }
+}

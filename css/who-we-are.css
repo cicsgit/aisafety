@@ -1,0 +1,780 @@
+/* Styles for Who We Are page */
+
+/* Page Banner */
+.page-banner {
+    background-color: var(--light-gray);
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--secondary-color);
+}
+
+/* Header and Navigation Improvements */
+.dropdown-content {
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.wider-dropdown {
+    min-width: 280px;
+    /* Make JOIN US dropdown wider */
+    right: 0;
+    /* Align to the right to prevent overflow */
+    left: auto;
+}
+
+/* Page Tabs */
+.page-tabs {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--medium-gray);
+    position: sticky;
+    top: 80px;
+    z-index: 900;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-tabs .container {
+    display: flex;
+}
+
+.tab-link {
+    padding: 1rem 2rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all var(--transition-speed);
+}
+
+.tab-link.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+    padding: 3rem 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Section Intro */
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem;
+    margin: 2rem 0;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Community Section */
+.community-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.team-category {
+    font-size: 1.8rem;
+    margin: 3rem 0 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.team-category:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Team Members - Leadership */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.team-member {
+    display: flex;
+    background-color: white;
+    border: 1px solid var(--medium-gray);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-info h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.member-title {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.member-bio {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.member-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.member-link {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.member-link:hover {
+    color: var(--secondary-color);
+}
+
+.member-link i {
+    margin-right: 0.5rem;
+}
+
+.member-interests {
+    margin-top: 1rem;
+}
+
+.interests-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.interest-tag {
+    display: inline-block;
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Community Section - Research */
+.research-category {
+    font-size: 1.8rem;
+    margin: 3rem 0 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.research-category:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.research-item {
+    background-color: white;
+    border: 1px solid var(--medium-gray);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.research-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.research-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.research-desc {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.research-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.research-link {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.research-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Funding Section */
+.funding-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.funding-category {
+    margin-bottom: 3rem;
+}
+
+.funding-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.funding-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.funding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.funding-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid var(--medium-gray);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.funding-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.funding-logo {
+    height: 80px;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.funding-logo img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.funding-item h4 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Industry Partners */
+.partners-grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.partner {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid var(--medium-gray);
+    transition: transform var(--transition-speed);
+}
+
+.partner:hover {
+    transform: translateY(-5px);
+}
+
+.partner-logo {
+    height: 80px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logo img {
+    max-height: 100%;
+}
+
+.partner h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.partner p {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+/* Philanthropy */
+.philanthropy-section {
+    margin-bottom: 3rem;
+}
+
+.foundations-list {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.foundation {
+    text-align: center;
+}
+
+.foundation img {
+    height: 100px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+.foundation h4 {
+    font-size: 1rem;
+}
+
+.support-cta {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+}
+
+.support-cta h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.support-cta p {
+    margin-bottom: 1.5rem;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color var(--transition-speed);
+}
+
+.donate-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Advisory Board */
+.advisory-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.advisors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 2rem;
+}
+
+.advisor {
+    display: flex;
+    border: 1px solid var(--medium-gray);
+    padding: 1.5rem;
+    transition: transform var(--transition-speed);
+}
+
+.advisor:hover {
+    transform: translateY(-5px);
+}
+
+.advisor-photo {
+    width: 120px;
+    height: 120px;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.advisor-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+}
+
+.advisor-info {
+    flex: 1;
+}
+
+.advisor-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.advisor-title {
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+}
+
+.advisor-bio {
+    line-height: 1.6;
+}
+
+/* Loading indicator */
+.loading-indicator {
+    text-align: center;
+    padding: 3rem;
+    color: var(--secondary-color);
+}
+
+.loading-indicator i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: fa-spin 2s infinite linear;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .member-photo {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .member-links {
+        justify-content: center;
+    }
+
+    .funding-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .funding-item {
+        padding: 1.5rem;
+    }
+
+    .funding-logo {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .funding-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+
+    .funding-item {
+        padding: 1rem;
+    }
+
+    .funding-logo {
+        height: 50px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .three-column {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .three-column {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Updated Layout Structure */
+.page-container {
+    display: flex;
+    max-width: 100%;
+    /* Full width container */
+    padding: 0 5%;
+    /* Add padding to the container instead of max-width */
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 140px);
+    padding: 0;
+    margin-left: -50px;
+    /* Move sidebar further left */
+    margin-right: 80px;
+    /* Increase space between sidebar and content */
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-item {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-item a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.sidebar-item.active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-item.active a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.sidebar-indicator {
+    display: none;
+    color: var(--primary-color);
+}
+
+.sidebar-item.active .sidebar-indicator {
+    display: block;
+}
+
+.main-content {
+    flex-grow: 1;
+    max-width: 1200px;
+    padding: 0;
+}
+
+.content-section {
+    padding: 0 0 60px 0;
+    scroll-margin-top: 100px;
+}
+
+.content-section:first-child h2 {
+    margin-top: 0;
+}
+
+/* Remove the old content-with-sidebar class */
+.content-with-sidebar {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .sidebar {
+        margin-left: 0;
+        /* Reset negative margin on smaller screens */
+        margin-right: 40px;
+    }
+
+    .page-container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-item {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar-nav {
+        flex-direction: column;
+    }
+
+    .sidebar-item {
+        width: 100%;
+        margin-right: 0;
+    }
+}

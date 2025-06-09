@@ -1,0 +1,396 @@
+hero:
+  title: "Join Our Mission"
+  subtitle: "Be part of the effort to ensure AI systems are safe, aligned, and beneficial for humanity"
+  description: "Whether you're a student, researcher, or professional, there are many ways to get involved with the UMass Amherst AI Safety Initiative."
+  buttons:
+    - text: "Explore Opportunities"
+      type: "primary"
+      link: "#grad-students"
+    - text: "Contact Us"
+      type: "secondary"
+      link: "#contact-us"
+  image: "images/join-hero.jpg"
+
+graduate_students:
+  title: "Graduate Students"
+  intro: "We offer comprehensive programs for graduate students interested in AI safety research, from PhD fellowships to research assistantships and collaborative projects."
+  
+  programs:
+    - title: "PhD Fellowship Program"
+      description: "Full funding for PhD students conducting cutting-edge research in AI safety, alignment, and related areas."
+      image: "images/phd-fellowship.jpg"
+      features:
+        - "Full tuition coverage and competitive stipend"
+        - "Access to state-of-the-art research facilities"
+        - "Mentorship from leading AI safety researchers"
+        - "Opportunities for industry collaboration"
+        - "Conference travel funding"
+      details:
+        duration: "4-6 years"
+        funding: "Full funding"
+        deadline: "December 15, 2024"
+        start_date: "Fall 2025"
+      link: "apply-phd.html"
+    
+    - title: "Master's Research Program"
+      description: "Two-year master's program with thesis focus on AI safety topics, combining coursework with hands-on research experience."
+      image: "images/masters-program.jpg"
+      features:
+        - "Specialized AI safety curriculum"
+        - "Thesis research with faculty advisor"
+        - "Teaching assistantship opportunities"
+        - "Industry internship placements"
+        - "Access to research labs and resources"
+      details:
+        duration: "2 years"
+        funding: "TA/RA positions available"
+        deadline: "January 31, 2024"
+        start_date: "Fall 2024"
+      link: "apply-masters.html"
+    
+    - title: "Research Assistantships"
+      description: "Part-time research positions for current graduate students to work on AI safety projects alongside faculty and postdocs."
+      image: "images/research-assistantships.jpg"
+      features:
+        - "Flexible part-time commitment"
+        - "Work on cutting-edge research projects"
+        - "Collaborate with interdisciplinary teams"
+        - "Gain hands-on experience with AI safety tools"
+        - "Publication opportunities"
+      details:
+        duration: "1 semester - 2 years"
+        funding: "Hourly compensation"
+        deadline: "Rolling applications"
+        start_date: "Any semester"
+      link: "apply-ra.html"
+
+  current_opportunities:
+    - title: "PhD Position: AI Alignment Research"
+      description: "Work on developing novel approaches to AI alignment, focusing on value learning and preference elicitation from human feedback."
+      level: "PhD"
+      advisor: "Dr. Sarah Johnson"
+      deadline: "March 15, 2024"
+      funding: "Full fellowship"
+      duration: "4-5 years"
+    
+    - title: "Master's Thesis: Robustness in LLMs"
+      description: "Research project investigating robustness properties of large language models under distribution shift and adversarial conditions."
+      level: "Master's"
+      advisor: "Dr. Michael Chen"
+      deadline: "February 28, 2024"
+      funding: "RA position"
+      duration: "2 years"
+    
+    - title: "Research Assistant: Interpretability Tools"
+      description: "Develop and evaluate interpretability methods for deep neural networks, with applications to AI safety."
+      level: "RA"
+      advisor: "Dr. Emily Rodriguez"
+      deadline: "Rolling"
+      funding: "Hourly"
+      duration: "1-2 semesters"
+
+  resources:
+    - title: "Application Guidelines"
+      description: "Comprehensive guide to applying for graduate programs, including requirements, deadlines, and tips for strong applications."
+      icon: "fas fa-file-alt"
+      link: "grad-application-guide.html"
+    
+    - title: "Research Areas Overview"
+      description: "Detailed information about current research areas, faculty interests, and ongoing projects in AI safety."
+      icon: "fas fa-microscope"
+      link: "research-areas.html"
+    
+    - title: "Funding Information"
+      description: "Information about fellowships, assistantships, and other funding opportunities for graduate students."
+      icon: "fas fa-dollar-sign"
+      link: "funding-info.html"
+    
+    - title: "Student Life"
+      description: "Learn about graduate student life at UMass Amherst, including housing, campus resources, and student organizations."
+      icon: "fas fa-users"
+      link: "student-life.html"
+
+  contact:
+    name: "Dr. Michael Chen"
+    title: "Graduate Program Director"
+    email: "mchen@umass.edu"
+    office: "CS Building, Room 302"
+    office_hours: "Tuesdays and Thursdays, 2-4 PM"
+    image: "content/people/images/pic_placeholder.jpg"
+
+undergraduate_students:
+  title: "Undergraduate Students"
+  intro: "We provide numerous opportunities for undergraduate students to get involved in AI safety research and education, from summer research programs to course projects and internships."
+  
+  programs:
+    - title: "Summer Research Program"
+      description: "10-week intensive summer research experience for undergraduate students interested in AI safety."
+      image: "images/summer-research.jpg"
+      features:
+        - "10-week full-time research experience"
+        - "Mentorship from graduate students and faculty"
+        - "$4,000 stipend plus housing"
+        - "Weekly seminars and workshops"
+        - "Final research presentation"
+      details:
+        duration: "10 weeks (June-August)"
+        funding: "$4,000 stipend"
+        deadline: "March 1, 2024"
+        start_date: "June 3, 2024"
+      link: "apply-summer-research.html"
+    
+    - title: "Academic Year Research"
+      description: "Part-time research opportunities during the academic year for students to work on AI safety projects."
+      image: "images/academic-research.jpg"
+      features:
+        - "Flexible 10-15 hours per week commitment"
+        - "Work on real research projects"
+        - "Learn research methodologies"
+        - "Potential for independent study credit"
+        - "Pathway to honors thesis"
+      details:
+        duration: "1-2 semesters"
+        funding: "Academic credit or work-study"
+        deadline: "Rolling applications"
+        start_date: "Any semester"
+      link: "apply-academic-research.html"
+    
+    - title: "AI Safety Course Projects"
+      description: "Special projects within our AI safety courses that allow students to contribute to ongoing research."
+      image: "images/course-projects.jpg"
+      features:
+        - "Integrated with coursework"
+        - "Real-world research problems"
+        - "Faculty and graduate student mentorship"
+        - "Potential for publication"
+        - "Portfolio development"
+      details:
+        duration: "1 semester"
+        funding: "Course credit"
+        deadline: "Course enrollment deadlines"
+        start_date: "Fall/Spring semesters"
+      link: "ai-safety-courses.html"
+
+  current_opportunities:
+    - title: "Summer Research: Human-AI Interaction"
+      description: "Study how humans interact with AI systems and develop interfaces for better human oversight of AI decision-making."
+      level: "Undergraduate"
+      mentor: "Dr. Emily Rodriguez & Graduate Student"
+      deadline: "March 1, 2024"
+      funding: "Stipend + Housing"
+      duration: "10 weeks"
+    
+    - title: "Independent Study: AI Ethics"
+      description: "Explore ethical frameworks for AI development and deployment, with focus on fairness and transparency."
+      level: "Undergraduate"
+      mentor: "Dr. Sarah Johnson"
+      deadline: "Rolling"
+      funding: "Academic credit"
+      duration: "1 semester"
+    
+    - title: "Work-Study: Research Support"
+      description: "Assist with data collection, analysis, and literature reviews for ongoing AI safety research projects."
+      level: "Undergraduate"
+      mentor: "Various faculty"
+      deadline: "Rolling"
+      funding: "Work-study wages"
+      duration: "Ongoing"
+
+  resources:
+    - title: "Getting Started in AI Safety"
+      description: "Introduction to AI safety concepts, key papers, and resources for students new to the field."
+      icon: "fas fa-play-circle"
+      link: "getting-started.html"
+    
+    - title: "Course Recommendations"
+      description: "Suggested courses and learning paths for students interested in AI safety research."
+      icon: "fas fa-graduation-cap"
+      link: "course-recommendations.html"
+    
+    - title: "Research Skills Workshop"
+      description: "Workshops on research methodology, academic writing, and presentation skills."
+      icon: "fas fa-tools"
+      link: "research-skills.html"
+    
+    - title: "Career Guidance"
+      description: "Information about career paths in AI safety, from academia to industry to policy."
+      icon: "fas fa-compass"
+      link: "career-guidance.html"
+
+  contact:
+    name: "Dr. Emily Rodriguez"
+    title: "Undergraduate Program Coordinator"
+    email: "erodriguez@umass.edu"
+    office: "CS Building, Room 303"
+    office_hours: "Mondays and Wednesdays, 1-3 PM"
+    image: "content/people/images/pic_placeholder.jpg"
+
+mailing_list:
+  title: "Join Our Mailing List"
+  intro: "Stay connected with the latest updates, opportunities, and events from the UMass Amherst AI Safety Initiative."
+  
+  info:
+    title: "Stay Informed About AI Safety"
+    description: "Our mailing list is the best way to stay up-to-date with the latest developments in AI safety research, upcoming events, funding opportunities, and ways to get involved."
+    
+    benefits:
+      - "Monthly newsletter with research highlights"
+      - "Early notification of funding opportunities"
+      - "Invitations to seminars and workshops"
+      - "Updates on new courses and programs"
+      - "Job and internship announcements"
+      - "Conference and event notifications"
+    
+    privacy_note: "We respect your privacy. Your email will only be used for AI Safety Initiative communications and will never be shared with third parties."
+
+  form:
+    title: "Subscribe to Updates"
+    fields:
+      - name: "firstName"
+        label: "First Name"
+        type: "text"
+        required: true
+      - name: "lastName"
+        label: "Last Name"
+        type: "text"
+        required: true
+      - name: "email"
+        label: "Email Address"
+        type: "email"
+        required: true
+      - name: "affiliation"
+        label: "Affiliation"
+        type: "select"
+        required: true
+        options:
+          - "UMass Amherst Student"
+          - "UMass Amherst Faculty/Staff"
+          - "Other University Student"
+          - "Other University Faculty/Staff"
+          - "Industry Professional"
+          - "Government/Policy"
+          - "Independent Researcher"
+          - "General Public"
+          - "Other"
+      - name: "interests"
+        label: "Areas of Interest (check all that apply)"
+        type: "checkbox"
+        options:
+          - "AI Alignment"
+          - "AI Safety Research"
+          - "AI Ethics and Policy"
+          - "Interpretability"
+          - "Robustness"
+          - "AI Governance"
+          - "Educational Programs"
+          - "Industry Applications"
+      - name: "updates"
+        label: "Update Frequency"
+        type: "select"
+        required: true
+        options:
+          - "Weekly updates"
+          - "Monthly newsletter only"
+          - "Major announcements only"
+      - name: "comments"
+        label: "Additional Comments or Questions"
+        type: "textarea"
+        required: false
+
+  newsletter_preview:
+    title: "Newsletter Preview"
+    description: "Here's what our monthly newsletter looks like:"
+    image: "images/newsletter-preview.png"
+
+contact_us:
+  title: "Contact Us"
+  intro: "Have questions about our programs, research, or how to get involved? We'd love to hear from you."
+  
+  contact_methods:
+    - title: "General Inquiries"
+      description: "For general questions about the AI Safety Initiative"
+      icon: "fas fa-envelope"
+      email: "info@aisafety.umass.edu"
+      phone: "(413) 545-2743"
+      address: "Computer Science Building, Room 140"
+    
+    # - title: "Research Collaboration"
+    #   description: "For research partnerships and collaboration opportunities"
+    #   icon: "fas fa-handshake"
+    #   email: "research@aisafety.umass.edu"
+    #   contact_person: "Dr. Sarah Johnson"
+    #   phone: "(413) 545-1234"
+    
+    # - title: "Media & Press"
+    #   description: "For media inquiries and press requests"
+    #   icon: "fas fa-newspaper"
+    #   email: "media@aisafety.umass.edu"
+    #   contact_person: "Communications Team"
+    #   phone: "(413) 545-5678"
+    
+    # - title: "Educational Programs"
+    #   description: "For questions about courses, workshops, and educational resources"
+    #   icon: "fas fa-graduation-cap"
+    #   email: "education@aisafety.umass.edu"
+    #   contact_person: "Dr. Emily Rodriguez"
+    #   phone: "(413) 545-9101"
+
+  office_info:
+    title: "Visit Our Office"
+    address: "Computer Science Building, Room 140"
+    full_address: "140 Governors Drive, Amherst, MA 01003"
+    hours: "Monday-Friday, 9:00 AM - 5:00 PM"
+    parking: "Visitor parking available in Lot 12"
+    directions: "The Computer Science Building is located on the east side of campus, near the Engineering buildings."
+
+  form:
+    title: "Send Us a Message"
+    fields:
+      - name: "name"
+        label: "Full Name"
+        type: "text"
+        required: true
+      - name: "email"
+        label: "Email Address"
+        type: "email"
+        required: true
+      - name: "subject"
+        label: "Subject"
+        type: "select"
+        required: true
+        options:
+          - "General Inquiry"
+          - "Graduate Program Questions"
+          - "Undergraduate Opportunities"
+          - "Research Collaboration"
+          - "Media Inquiry"
+          - "Speaking Request"
+          - "Other"
+      - name: "message"
+        label: "Message"
+        type: "textarea"
+        required: true
+      - name: "phone"
+        label: "Phone Number (optional)"
+        type: "tel"
+        required: false
+
+social_media:
+  title: "Follow Us"
+  platforms:
+    - name: "Twitter"
+      handle: "@UMassAISafety"
+      url: "https://twitter.com/umassaisafety"
+      icon: "fab fa-twitter"
+    - name: "LinkedIn"
+      handle: "UMass Amherst AI Safety Initiative"
+      url: "https://linkedin.com/company/umass-ai-safety"
+      icon: "fab fa-linkedin"
+    - name: "YouTube"
+      handle: "UMass AI Safety"
+      url: "https://youtube.com/@umassaisafety"
+      icon: "fab fa-youtube"
+    - name: "GitHub"
+      handle: "umass-ai-safety"
+      url: "https://github.com/umass-ai-safety"
+      icon: "fab fa-github"
