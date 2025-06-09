@@ -1,3 +1,15 @@
+// Function to safely parse date without timezone issues (same as whats-happening.js)
+function parseDate(dateString) {
+    if (!dateString) return null;
+    // Parse date as local date to avoid timezone shifts
+    const parts = dateString.split('-');
+    if (parts.length === 3) {
+        // Create date as YYYY-MM-DD in local timezone
+        return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    }
+    return new Date(dateString);
+}
+
 // Function to render mixed news and events for landing page
 async function renderMixedNewsEvents(containerId) {
     const container = document.getElementById(containerId);
@@ -22,17 +34,23 @@ async function renderMixedNewsEvents(containerId) {
     const newsItems = whatsHappeningData.latest_news || [];
     const eventItems = whatsHappeningData.upcoming_events || [];
 
-    // Sort each category by date (newest first)
+    // Sort each category by date (newest first) using consistent parseDate function
     newsItems.sort((a, b) => {
-        if (!a.date) return 1;
-        if (!b.date) return -1;
-        return new Date(b.date) - new Date(a.date);
+        const dateA = parseDate(a.date);
+        const dateB = parseDate(b.date);
+        if (!dateA && !dateB) return 0;
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+        return dateB - dateA; // Most recent first
     });
 
     eventItems.sort((a, b) => {
-        if (!a.date) return 1;
-        if (!b.date) return -1;
-        return new Date(b.date) - new Date(a.date);
+        const dateA = parseDate(a.date);
+        const dateB = parseDate(b.date);
+        if (!dateA && !dateB) return 0;
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+        return dateB - dateA; // Most recent first
     });
 
     // Take the 2 latest from each category
@@ -58,11 +76,14 @@ async function renderMixedNewsEvents(containerId) {
         });
     });
 
-    // Sort combined items by date
+    // Sort combined items by date using consistent parseDate function
     combinedItems.sort((a, b) => {
-        if (!a.date) return 1;
-        if (!b.date) return -1;
-        return new Date(b.date) - new Date(a.date);
+        const dateA = parseDate(a.date);
+        const dateB = parseDate(b.date);
+        if (!dateA && !dateB) return 0;
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+        return dateB - dateA; // Most recent first
     });
 
     // Clear existing content
@@ -76,15 +97,17 @@ async function renderMixedNewsEvents(containerId) {
 
         const imagePath = getImagePath(item.image, 'content/artifacts/images/aisec_generic.svg');
         
-        // Format date nicely
+        // Format date nicely using parseDate for consistency
         let formattedDate = '';
         if (item.date) {
-            const date = new Date(item.date);
-            formattedDate = date.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric' 
-            });
+            const date = parseDate(item.date);
+            if (date) {
+                formattedDate = date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                });
+            }
         }
 
         itemCard.innerHTML = `

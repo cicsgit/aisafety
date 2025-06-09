@@ -20,7 +20,7 @@ async function renderTeamByCategory(category, containerId) {
         }
 
         // Filter people by category
-        const categoryPeople = data.people.filter(person => {
+        let categoryPeople = data.people.filter(person => {
             return person.categories && person.categories.includes(category);
         });
 
@@ -28,6 +28,23 @@ async function renderTeamByCategory(category, containerId) {
             container.innerHTML = `<p>No ${category.toLowerCase()} members found.</p>`;
             return;
         }
+
+        // Sort people alphabetically by last name
+        categoryPeople.sort((a, b) => {
+            // Extract last name (last word in the name)
+            const getLastName = (fullName) => {
+                if (!fullName) return '';
+                const nameParts = fullName.trim().split(/\s+/);
+                return nameParts[nameParts.length - 1].toLowerCase();
+            };
+            
+            const lastNameA = getLastName(a.name);
+            const lastNameB = getLastName(b.name);
+            return lastNameA.localeCompare(lastNameB);
+        });
+
+        // Debug: Log the sorted names to verify sorting is working
+        // console.log(`${category} members sorted by last name:`, categoryPeople.map(p => p.name));
 
         // Clear loading indicator
         container.innerHTML = '';

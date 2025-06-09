@@ -1,3 +1,15 @@
+// Function to safely parse date without timezone issues
+function parseDate(dateString) {
+    if (!dateString) return null;
+    // Parse date as local date to avoid timezone shifts
+    const parts = dateString.split('-');
+    if (parts.length === 3) {
+        // Create date as YYYY-MM-DD in local timezone
+        return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    }
+    return new Date(dateString);
+}
+
 // Function to render news items from whats-happening.yaml
 async function renderLatestNews() {
     const container = document.getElementById('news-container');
@@ -22,8 +34,16 @@ async function renderLatestNews() {
             return;
         }
 
-        // Store all news items
-        const allNews = data.latest_news;
+        // Store all news items and sort by date (most recent first)
+        const allNews = data.latest_news.slice().sort((a, b) => {
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            if (!dateA && !dateB) return 0;
+            if (!dateA) return 1;
+            if (!dateB) return -1;
+            return dateB - dateA; // Most recent first
+        });
+
         const maxInitialItems = 6;
         const shouldShowViewMore = allNews.length > maxInitialItems;
         
@@ -46,14 +66,14 @@ async function renderLatestNews() {
                 const newsCard = document.createElement('div');
                 newsCard.className = 'content-card';
 
-                const date = new Date(newsItem.date);
+                const date = parseDate(newsItem.date);
 
                 newsCard.innerHTML = `
                     <div class="card-image">
                         <img src="${newsItem.image}" alt="${newsItem.title}" loading="lazy">
                         <div class="card-date">
-                            <span class="month">${date.toLocaleDateString('en-US', { month: 'short' })}</span>
-                            <span class="day">${date.getDate()}</span>
+                            <span class="month">${date ? date.toLocaleDateString('en-US', { month: 'short' }) : ''}</span>
+                            <span class="day">${date ? date.getDate() : ''}</span>
                         </div>
                     </div>
                     <div class="card-content">
@@ -136,8 +156,16 @@ async function renderUpcomingEvents() {
             return;
         }
 
-        // Store all events
-        const allEvents = data.upcoming_events;
+        // Store all events and sort by date (most recent first)
+        const allEvents = data.upcoming_events.slice().sort((a, b) => {
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            if (!dateA && !dateB) return 0;
+            if (!dateA) return 1;
+            if (!dateB) return -1;
+            return dateB - dateA; // Most recent first
+        });
+
         const maxInitialItems = 6;
         const shouldShowViewMore = allEvents.length > maxInitialItems;
         
@@ -160,14 +188,14 @@ async function renderUpcomingEvents() {
                 const eventCard = document.createElement('div');
                 eventCard.className = 'content-card event-card';
 
-                const date = new Date(event.date);
+                const date = parseDate(event.date);
 
                 eventCard.innerHTML = `
                     <div class="card-image">
                         <img src="${event.image}" alt="${event.title}" loading="lazy">
                         <div class="card-date">
-                            <span class="month">${date.toLocaleDateString('en-US', { month: 'short' })}</span>
-                            <span class="day">${date.getDate()}</span>
+                            <span class="month">${date ? date.toLocaleDateString('en-US', { month: 'short' }) : ''}</span>
+                            <span class="day">${date ? date.getDate() : ''}</span>
                         </div>
                     </div>
                     <div class="card-content">
