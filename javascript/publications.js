@@ -2,6 +2,7 @@
 let allPublications = [];
 let currentlyDisplayed = 0;
 const publicationsPerPage = 8;
+let allPeople = []; // Store all people data
 
 // Function to parse BibTeX files
 async function parseBibTeX(bibText) {
@@ -179,9 +180,9 @@ async function parseBibTeX(bibText) {
 }
 
 // Function to fetch and parse a BibTeX file
-async function loadBibTeXFile(personName) {
+async function loadBibTeXFile(fileName) {
     // The personName is directly used as the filename
-    const fileName = `${personName}.bib`;
+    // const fileName = `${personName}.bib`;
 
     try {
         const response = await fetch(`content/people/bibs/${encodeURIComponent(fileName)}`);
@@ -198,8 +199,48 @@ async function loadBibTeXFile(personName) {
     }
 }
 
+// Function to load all people from people.yaml
+async function loadAllPeople() {
+    try {
+        const response = await fetch('content/people.yaml');
+        if (!response.ok) {
+            console.error('Failed to load people.yaml:', response.statusText);
+            return [];
+        }
+        const yamlText = await response.text();
+        const data = jsyaml.load(yamlText);
+        return data.people || [];
+    } catch (error) {
+        console.error('Error loading people data:', error);
+        return [];
+    }
+}
+
+// Function to load publications from all people
+async function loadAllPublications() {
+    if (allPeople.length === 0) {
+        allPeople = await loadAllPeople();
+    }
+
+    const allEntries = [];
+    
+    for (const person of allPeople) {
+        if (person.bib_file) {
+            const entries = await loadBibTeXFile(person.bib_file);
+            // Add person info to each entry for proper attribution
+            entries.forEach(entry => {
+                entry.personName = person.name;
+                entry.personRole = person.role;
+            });
+            allEntries.push(...entries);
+        }
+    }
+
+    return allEntries;
+}
+
 // Function to render publications with pagination
-async function renderPublications(containerId, personName, featuredOnly = false, limit = null) {
+async function renderPublications(containerId, personName = null, featuredOnly = false, limit = null) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
@@ -211,8 +252,14 @@ async function renderPublications(containerId, personName, featuredOnly = false,
         </div>
     `;
 
-    // Load BibTeX entries
-    const entries = await loadBibTeXFile(personName);
+    let entries;
+    if (personName) {
+        // Load publications for specific person (for backward compatibility)
+        entries = await loadBibTeXFile(personName);
+    } else {
+        // Load publications from all people
+        entries = await loadAllPublications();
+    }
 
     // Clear the container
     container.innerHTML = '';
@@ -298,13 +345,25 @@ function renderPublicationEntries(container, entries, personName) {
                 authors = authors.replace(/\\myname{([^}]+)}/g, 'Bagdasarian, Eugene');
                 authors = authors.replace(/ and /g, ', ');
 
-                // Highlight the person's name
-                const nameParts = personName.split(' ');
-                const lastName = nameParts[nameParts.length - 1];
-                const firstName = nameParts[0];
+                // Highlight names from our people list
+                if (allPeople.length > 0) {
+                    allPeople.forEach(person => {
+                        const nameParts = person.name.split(' ');
+                        const lastName = nameParts[nameParts.length - 1];
+                        const firstName = nameParts[0];
+                        
+                        authors = authors.replace(new RegExp(`${lastName}(,)?\\s*${firstName}`, 'gi'),
+                            `<strong>${lastName}$1 ${firstName}</strong>`);
+                    });
+                } else if (personName) {
+                    // Fallback to single person highlighting
+                    const nameParts = personName.split(' ');
+                    const lastName = nameParts[nameParts.length - 1];
+                    const firstName = nameParts[0];
 
-                authors = authors.replace(new RegExp(`${lastName}(,)?\\s*${firstName}`, 'i'),
-                    `<strong>${lastName}$1 ${firstName}</strong>`);
+                    authors = authors.replace(new RegExp(`${lastName}(,)?\\s*${firstName}`, 'i'),
+                        `<strong>${lastName}$1 ${firstName}</strong>`);
+                }
 
                 // Common publication info
                 const title = entry.fields.title || 'Unknown Title';
@@ -364,6 +423,113 @@ ${Object.entries(entry.fields).map(([k, v]) => `  ${k} = {${v}}`).join(',\n')}
     setupBibTeXToggles();
 }
 
+// Function to search publications
+function searchPublications() {
+    const searchText = document.getElementById('publication-search')?.value.toLowerCase() || '';
+    const yearFilter = document.getElementById('year-filter')?.value || 'all';
+    const topicFilter = document.getElementById('topic-filter')?.value || 'all';
+
+    const publicationItems = document.querySelectorAll('.publication-item');
+    const yearSections = document.querySelectorAll('.publication-year');
+
+    // Apply filters
+    publicationItems.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+        const itemYear = item.closest('.publication-year')?.querySelector('h3')?.textContent || '';
+        const itemTopics = item.dataset.topics ? item.dataset.topics.split(',').map(t => t.trim()) : [];
+
+        // Check if the item matches all filters
+        const matchesSearch = !searchText || itemText.includes(searchText);
+        const matchesYear = yearFilter === 'all' || itemYear === yearFilter;
+        const matchesTopic = topicFilter === 'all' || 
+                            (itemTopics.length > 0 && itemTopics.some(topic => topic.toLowerCase() === topicFilter.toLowerCase()));
+
+        // Show or hide based on filters
+        if (matchesSearch && matchesYear && matchesTopic) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    // Hide year sections with no visible items
+    yearSections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.publication-item:not([style*="display: none"])');
+        if (visibleItems.length > 0) {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    });
+}
+
+// Function to populate year filter options
+function populateYearFilterOptions() {
+    const yearFilter = document.getElementById('year-filter');
+    if (!yearFilter) return;
+    
+    // Get all unique years from publications
+    const years = new Set();
+    document.querySelectorAll('.publication-year h3').forEach(yearHeading => {
+        const year = yearHeading.textContent.trim();
+        if (year && year !== 'Unknown') {
+            years.add(year);
+        }
+    });
+    
+    // Sort years in descending order
+    const sortedYears = Array.from(years).sort((a, b) => parseInt(b) - parseInt(a));
+    
+    // Clear existing options except 'all'
+    while (yearFilter.options.length > 1) {
+        yearFilter.remove(1);
+    }
+    
+    // Add years as options
+    sortedYears.forEach(year => {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearFilter.appendChild(option);
+    });
+}
+
+// Function to populate topic filter options from publication tags
+function populateTopicFilterOptions() {
+    const topicFilter = document.getElementById('topic-filter');
+    if (!topicFilter) return;
+    
+    // Get all unique tags from publications
+    const tags = new Set();
+    document.querySelectorAll('.publication-item').forEach(item => {
+        if (item.dataset.topics) {
+            const itemTopics = item.dataset.topics.split(',');
+            itemTopics.forEach(topic => {
+                const cleanTopic = topic.trim();
+                if (cleanTopic) {
+                    tags.add(cleanTopic);
+                }
+            });
+        }
+    });
+    
+    // Sort tags alphabetically
+    const sortedTags = Array.from(tags).sort();
+    
+    // Clear existing options except 'all'
+    while (topicFilter.options.length > 1) {
+        topicFilter.remove(1);
+    }
+    
+    // Add tags as options
+    sortedTags.forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag.charAt(0).toUpperCase() + tag.slice(1); // Capitalize first letter
+        topicFilter.appendChild(option);
+    });
+}
+
 // Function to load more publications
 function loadMorePublications() {
     const container = document.getElementById('all-publications-container');
@@ -379,14 +545,19 @@ function loadMorePublications() {
         // Re-render with only initial publications
         const initialPublications = allPublications.slice(0, publicationsPerPage);
         container.innerHTML = '';
-        renderPublicationEntries(container, initialPublications, 'Eugene Bagdasarian');
+        renderPublicationEntries(container, initialPublications, null);
         
-        // Update button text and functionality
+        // Update button text
         viewMoreBtn.textContent = 'View More Publications';
-        viewMoreBtn.onclick = loadMorePublications;
+        
+        // Re-populate filters after re-rendering
+        setTimeout(() => {
+            populateYearFilterOptions();
+            populateTopicFilterOptions();
+        }, 100);
         
         // Scroll back to top of publications section
-        document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' });
         
         return;
     }
@@ -400,19 +571,27 @@ function loadMorePublications() {
         return;
     }
 
-    // Render additional publications
-    renderPublicationEntries(container, nextBatch, 'Eugene Bagdasarian');
+    const tempContainer = document.createElement('div');
+    renderPublicationEntries(tempContainer, nextBatch, null);
+    
+    // Append the new publications to the existing container
+    while (tempContainer.firstChild) {
+        container.appendChild(tempContainer.firstChild);
+    }
+
     currentlyDisplayed += nextBatch.length;
 
     // Update button behavior when all publications are displayed
     if (currentlyDisplayed >= allPublications.length) {
         viewMoreBtn.textContent = 'View Less Publications';
-        // The onclick handler will handle the "View Less" functionality on next click
     }
 
-    // Re-setup BibTeX toggles and search functionality
+    // Re-setup BibTeX toggles and update filters
     setupBibTeXToggles();
-    populateTopicFilterOptions();
+    setTimeout(() => {
+        populateYearFilterOptions();
+        populateTopicFilterOptions();
+    }, 100);
 }
 
 // Function to setup BibTeX toggle functionality
@@ -434,70 +613,7 @@ function setupBibTeXToggles() {
     });
 }
 
-// Function to search publications
-function searchPublications() {
-    const searchText = document.getElementById('publication-search')?.value.toLowerCase() || '';
-    const yearFilter = document.getElementById('year-filter')?.value || 'all';
-    const topicFilter = document.getElementById('topic-filter')?.value || 'all';
-
-    const publicationItems = document.querySelectorAll('.publication-item');
-    const yearSections = document.querySelectorAll('.publication-year');
-
-    // Apply filters
-    publicationItems.forEach(item => {
-        const itemText = item.textContent.toLowerCase();
-        const itemYear = item.closest('.publication-year')?.querySelector('h3')?.textContent || '';
-        const itemTopics = item.dataset.topics ? item.dataset.topics.split(',') : [];
-
-        // Check if the item matches all filters
-        const matchesSearch = !searchText || itemText.includes(searchText);
-        const matchesYear = yearFilter === 'all' || itemYear === yearFilter;
-        const matchesTopic = topicFilter === 'all' ||
-                            (itemTopics.length > 0 && itemTopics.includes(topicFilter));
-
-        // Show or hide based on filters
-        item.style.display = (matchesSearch && matchesYear && matchesTopic) ? 'block' : 'none';
-    });
-
-    // Hide year sections with no visible items
-    yearSections.forEach(section => {
-        const visibleItems = section.querySelectorAll('.publication-item[style="display: block"]');
-        section.style.display = visibleItems.length > 0 ? 'block' : 'none';
-    });
-}
-
-// Function to populate topic filter options from publication tags
-function populateTopicFilterOptions() {
-    const topicFilter = document.getElementById('topic-filter');
-    if (!topicFilter) return;
-    
-    // Get all unique tags from publications
-    const tags = new Set();
-    document.querySelectorAll('.publication-item').forEach(item => {
-        if (item.dataset.topics) {
-            const itemTopics = item.dataset.topics.split(',');
-            itemTopics.forEach(topic => tags.add(topic.trim()));
-        }
-    });
-    
-    // Sort tags alphabetically
-    const sortedTags = Array.from(tags).sort();
-    
-    // Clear existing options except 'all'
-    while (topicFilter.options.length > 1) {
-        topicFilter.remove(1);
-    }
-    
-    // Add tags as options
-    sortedTags.forEach(tag => {
-        const option = document.createElement('option');
-        option.value = tag;
-        option.textContent = tag.charAt(0).toUpperCase() + tag.slice(1); // Capitalize first letter
-        topicFilter.appendChild(option);
-    });
-}
-
-// Export publications as BibTeX
+// Function to export publications as BibTeX
 async function exportBibTeX() {
     try {
         // Fetch the raw BibTeX file
@@ -530,14 +646,15 @@ async function initPublicationsPage() {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
     if (currentPath === 'publications.html') {
-        // Publications page - load first 8 publications
+        // Publications page - load publications from all people
         if (document.getElementById('all-publications-container')) {
-            await renderPublications('all-publications-container', 'Eugene Bagdasarian', false, publicationsPerPage);
+            await renderPublications('all-publications-container', null, false, publicationsPerPage);
             
-            // Populate topic filter options after publications are loaded
+            // Populate filter options after publications are loaded
             setTimeout(() => {
+                populateYearFilterOptions();
                 populateTopicFilterOptions();
-            }, 100);
+            }, 200);
             
             // Set up search functionality
             const searchInput = document.getElementById('publication-search');
@@ -559,6 +676,7 @@ async function initPublicationsPage() {
             // Set up view more button
             const viewMoreBtn = document.getElementById('view-more-publications');
             if (viewMoreBtn) {
+                viewMoreBtn.removeEventListener('click', loadMorePublications);
                 viewMoreBtn.addEventListener('click', loadMorePublications);
                 
                 // Hide button if all publications are already displayed

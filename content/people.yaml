@@ -1,0 +1,13 @@
+people:
+  - name: "Eugene Bagdasarian"
+    role: "Assistant Professor"
+    bib_file: "Eugene Bagdasarian.bib"
+
+  - name: "Kyle Hollins Wray"
+    role: "Senior Research Scientist"
+    bib_file: "Kyle Hollins Wray.bib"
+
+  - name: "David Kim"
+    role: "Research Scientist"
+    bib_file: "David Kim.bib"
+

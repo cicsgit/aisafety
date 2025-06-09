@@ -1,3 +1,9 @@
+// Global variable for research pagination
+let allResearchItems = [];
+let currentlyDisplayed = 0;
+const researchItemsPerPage = 6;
+let allPeople = []; // Store all people data
+
 // Function to render mission section from what-we-do.yaml
 async function renderMission() {
     const container = document.getElementById('mission-content');
@@ -54,7 +60,7 @@ async function renderMission() {
     }
 }
 
-// Function to render research areas
+// Function to render research items
 async function renderResearch() {
     const container = document.getElementById('research-content');
     if (!container) return;
@@ -63,7 +69,7 @@ async function renderResearch() {
     container.innerHTML = `
         <div class="loading-indicator">
             <i class="fas fa-spinner fa-spin"></i>
-            <p>Loading research areas...</p>
+            <p>Loading research content...</p>
         </div>
     `;
 
@@ -79,8 +85,9 @@ async function renderResearch() {
         container.innerHTML = '';
 
         const research = data.research;
+        allResearchItems = research.items || [];
 
-        // Create research content with horizontal layout
+        // Create research content with items grid
         const researchContent = document.createElement('div');
         researchContent.className = 'research-content';
 
@@ -88,29 +95,129 @@ async function renderResearch() {
             <div class="research-intro">
                 <p>${research.description}</p>
             </div>
-            <div class="research-areas">
-                ${research.areas.map(area => `
-                    <div class="research-area">
-                        <div class="research-icon">
-                            <i class="${area.icon}"></i>
-                        </div>
-                        <h3>${area.title}</h3>
-                        <p>${area.description}</p>
-                        <a href="${area.link}" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                `).join('')}
+            <div class="research-items" id="research-items-container">
+                <!-- Research items will be populated here -->
+            </div>
+            <div class="research-view-more-container">
+                <button class="research-view-more-btn" id="research-view-more-btn">
+                    View More Research
+                </button>
             </div>
         `;
 
         container.appendChild(researchContent);
+
+        // Render initial research items
+        renderResearchItems(researchItemsPerPage);
+
+        // Set up view more button
+        const viewMoreBtn = document.getElementById('research-view-more-btn');
+        if (viewMoreBtn) {
+            viewMoreBtn.addEventListener('click', handleResearchViewMore);
+            
+            // Hide button if all items are already displayed
+            if (allResearchItems.length <= researchItemsPerPage) {
+                viewMoreBtn.style.display = 'none';
+            }
+        }
+
     } catch (error) {
         console.error('Error rendering research:', error);
         container.innerHTML = '<p>Failed to load research content. Please try again later.</p>';
     }
 }
 
+// Function to render research items with limit
+function renderResearchItems(limit = null) {
+    const container = document.getElementById('research-items-container');
+    if (!container || !allResearchItems) return;
+
+    // Determine how many items to show
+    const itemsToShow = limit ? Math.min(limit, allResearchItems.length) : allResearchItems.length;
+    const itemsToRender = allResearchItems.slice(0, itemsToShow);
+    
+    // Clear container
+    container.innerHTML = '';
+
+    // Render each research item
+    itemsToRender.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'research-item';
+
+        // Format authors list
+        const authorsHTML = item.authors ? item.authors.map(author => 
+            `<span class="research-author">${author}</span>`
+        ).join('') : '';
+
+        itemElement.innerHTML = `
+            <div class="research-item-header">
+                <div class="research-item-icon">
+                    <i class="${item.icon}"></i>
+                </div>
+                <h3 class="research-item-title">${item.title}</h3>
+            </div>
+            <p class="research-item-description">${item.description}</p>
+            ${item.authors ? `
+                <div class="research-item-authors">
+                    <h4>Researchers</h4>
+                    <div class="research-authors-list">
+                        ${authorsHTML}
+                    </div>
+                </div>
+            ` : ''}
+            <div class="research-item-footer">
+                <a href="${item.link}" class="research-learn-more">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        `;
+
+        container.appendChild(itemElement);
+    });
+
+    // Update current count
+    currentlyDisplayedResearch = itemsToShow;
+}
+
+// Function to handle view more/less research button
+function handleResearchViewMore() {
+    const viewMoreBtn = document.getElementById('research-view-more-btn');
+    if (!viewMoreBtn || !allResearchItems) return;
+
+    // Check if we're in expanded state (showing all items)
+    if (currentlyDisplayedResearch >= allResearchItems.length) {
+        // Switch to "View Less" mode
+        renderResearchItems(researchItemsPerPage);
+        viewMoreBtn.textContent = 'View More Research';
+        
+        // Scroll back to research section
+        document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
+    } else {
+        // Show all items
+        renderResearchItems();
+        viewMoreBtn.textContent = 'View Less Research';
+    }
+}
+
+// Function to load all people from people.yaml
+async function loadAllPeople() {
+    try {
+        const response = await fetch('content/people.yaml');
+        if (!response.ok) {
+            console.error('Failed to load people.yaml:', response.statusText);
+            return [];
+        }
+        const yamlText = await response.text();
+        const data = jsyaml.load(yamlText);
+        return data.people || [];
+    } catch (error) {
+        console.error('Error loading people data:', error);
+        return [];
+    }
+}
+
 // Function to render featured publications with limit
-async function renderFeaturedPublications(containerId, personName, maxFeatured = 5) {
+async function renderFeaturedPublications(containerId, maxFeatured = 5) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
@@ -123,19 +230,30 @@ async function renderFeaturedPublications(containerId, personName, maxFeatured =
     `;
 
     try {
-        // Load BibTeX entries
-        const entries = await loadBibTeXFile(personName);
+        // Load all people if not already loaded
+        if (allPeople.length === 0) {
+            allPeople = await loadAllPeople();
+        }
+
+        // Load publications from all people
+        const allEntries = [];
+        for (const person of allPeople) {
+            if (person.bib_file && typeof loadBibTeXFile === 'function') {
+                const entries = await loadBibTeXFile(person.name);
+                allEntries.push(...entries);
+            }
+        }
 
         // Clear the container
         container.innerHTML = '';
 
-        if (entries.length === 0) {
+        if (allEntries.length === 0) {
             container.innerHTML = `<p class="no-publications">No publications found.</p>`;
             return;
         }
 
         // Filter for featured publications only
-        let featuredEntries = entries.filter(entry => entry.featured === true);
+        let featuredEntries = allEntries.filter(entry => entry.featured === true);
         
         if (featuredEntries.length === 0) {
             container.innerHTML = `<p class="no-publications">No featured publications found.</p>`;
@@ -168,16 +286,18 @@ async function renderFeaturedPublications(containerId, personName, maxFeatured =
 
             // Format authors
             let authors = entry.fields.author || '';
-            authors = authors.replace(/\\myname{([^}]+)}/g, 'Bagdasarian, Eugene');
-            authors = authors.replace(/ and /g, ', ');
+            // authors = authors.replace(/\\myname{([^}]+)}/g, 'Bagdasarian, Eugene');
+            // authors = authors.replace(/ and /g, ', ');
 
-            // Highlight the person's name
-            const nameParts = personName.split(' ');
-            const lastName = nameParts[nameParts.length - 1];
-            const firstName = nameParts[0];
-
-            authors = authors.replace(new RegExp(`${lastName}(,)?\\s*${firstName}`, 'i'),
-                `<strong>${lastName}$1 ${firstName}</strong>`);
+            // Highlight names from our people list
+            allPeople.forEach(person => {
+                const nameParts = person.name.split(' ');
+                const lastName = nameParts[nameParts.length - 1];
+                const firstName = nameParts[0];
+                
+                authors = authors.replace(new RegExp(`${lastName}(,)?\\s*${firstName}`, 'gi'),
+                    `<strong>${lastName}$1 ${firstName}</strong>`);
+            });
 
             // Common publication info
             const title = entry.fields.title || 'Unknown Title';
@@ -425,8 +545,12 @@ async function initWhatWeDoPage() {
     renderMission();
     renderResearch();
     if (document.getElementById('featured-publications-container')) {
-        // Will probably have to change the way I am displaying features for now
-        await renderFeaturedPublications('featured-publications-container', 'Eugene Bagdasarian', 5);
+        // Check if publications.js functions are available
+        if (typeof loadBibTeXFile === 'function') {
+            await renderFeaturedPublications('featured-publications-container', 5);
+        } else {
+            console.warn('Publications functionality not available - loadBibTeXFile function not found');
+        }
     }
     // renderFeaturedPublications();
     // renderOutreach();

@@ -358,7 +358,30 @@
     }
 }
 
-/* Hero Banner */
+/* Page Banner */
+.page-banner {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-banner p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Hero Banner
 .hero-banner {
     background-color: var(--primary-color);
     color: white;
@@ -398,6 +421,6 @@
 }
 
 /* Remove the old page-banner styles */
-.page-banner {
+/* .page-banner {
     display: none;
-}
+} */ 
