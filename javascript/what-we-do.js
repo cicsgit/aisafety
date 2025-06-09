@@ -48,8 +48,8 @@ async function renderMission() {
                     `).join('')}
                 </ul>
             </div>
-            <div class="mission-image">
-                <img src="images/mission-illustration.png" alt="AI Safety Mission Illustration">
+            <div class="mission-image" style="flex: 1.5; max-width: 60%;">
+                <img src="images/Mission.png" alt="AI Safety Mission Illustration" style="width: 100%; height: auto; max-width: none; object-fit: contain;">
             </div>
         `;
 

@@ -6,21 +6,43 @@
     color: white;
     padding: 4rem 0;
     text-align: center;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Background image properties will be set by JavaScript if image is provided */
+}
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    z-index: -1;
 }
 
 .banner-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .page-banner h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .page-banner p {
     font-size: 1.2rem;
     line-height: 1.6;
+    opacity: 0.95;
 }
 
 /* Container */

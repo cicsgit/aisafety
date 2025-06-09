@@ -1,3 +1,8 @@
+banner:
+  title: "What's Happening"
+  description: "Stay updated with the latest news, events, and seminars from the AI Safety Initiative"
+  # image: "images/image5.jpg"
+
 latest_news:
   - title: "Bagdasarian and Zilberstein receive Schmidt Sciences Grant"
     description: "UMass Amherst AI Safety Initiative receives major funding to advance research in AI alignment and safety protocols."

@@ -3,13 +3,13 @@ hero:
   subtitle: "Be part of the effort to ensure AI systems are safe, aligned, and beneficial for humanity"
   description: "Whether you're a student, researcher, or professional, there are many ways to get involved with the UMass Amherst AI Safety Initiative."
   buttons:
-    - text: "Explore Opportunities"
-      type: "primary"
-      link: "#grad-students"
+    # - text: "Explore Opportunities"
+    #   type: "primary"
+      # link: "#grad-students"
     - text: "Contact Us"
       type: "secondary"
       link: "#contact-us"
-  image: "images/join-hero.jpg"
+  image: "images/join-header.jpg"
 
 graduate_students:
   title: "Graduate Students"

@@ -303,8 +303,49 @@ function handleScrollSpy() {
     }
 }
 
+// Function to render page banner with optional image
+async function renderPageBanner() {
+    const bannerContainer = document.querySelector('.page-banner');
+    if (!bannerContainer) return;
+
+    try {
+        // Load the YAML data
+        const data = await loadYamlData('whats-happening.yaml');
+        if (!data || !data.banner) {
+            // Keep default banner if no data
+            return;
+        }
+
+        const banner = data.banner;
+        
+        // Update banner content
+        const bannerContent = bannerContainer.querySelector('.banner-content');
+        if (bannerContent && banner.title && banner.description) {
+            bannerContent.innerHTML = `
+                <h1>${banner.title}</h1>
+                <p>${banner.description}</p>
+            `;
+        }
+
+        // Add background image if provided
+        if (banner.image) {
+            bannerContainer.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${banner.image}')`;
+            bannerContainer.style.backgroundSize = banner.backgroundSize;
+            bannerContainer.style.backgroundPosition = banner.backgroundPosition;
+            bannerContainer.style.backgroundRepeat = 'no-repeat';
+        }
+
+    } catch (error) {
+        console.error('Error rendering banner:', error);
+        // Keep default banner on error
+    }
+}
+
 // Initialize whats-happening page functionality
 function initWhatsHappeningPage() {
+    // Load banner first
+    renderPageBanner();
+    
     // Load all content sections
     renderLatestNews();
     renderUpcomingEvents();
